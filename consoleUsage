@@ -1,0 +1,18 @@
+./c doctrine:database:create
+./c d:d:c 
+#sukuria duombazę
+
+
+./c doctrine:generate:entity
+./c d:g:entity
+#eina į entity kurimą
+
+
+./c doctrine:generate:entities
+./c d:g:entities AppBundle:Car
+#sugeneruoja get ir set kode
+
+
+./c doctrine:schema:update
+./c d:s:u --force
+#updatina duombazę rodymui

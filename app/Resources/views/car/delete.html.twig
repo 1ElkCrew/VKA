@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            Delete car: {{ car.id }} | {{ car.comment }}
+            <a href="{{ path('car_index') }}"><h2>No!</h2></a>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

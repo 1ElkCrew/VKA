@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <a href="{{ path("add_car") }}">Add New</a>
+
+            {% for car in cars %}
+                <li>
+                    {{ car.id }} |
+                    <a href="{{ path("edit_car", {car: car.id}) }}">
+                    {{ car.comment }}
+                    </a>
+                    |
+                <a href="{{ path("delete_car", {car: car.id}) }}">Delete
+
+                </a>
+                </li>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

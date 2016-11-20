@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            {% for m in models %}
+                <li>
+                    {{ m.id }} |
+                    <a href="{{ path("edit_models", {modelsType: m.id}) }}">
+                        {{ m.name }}
+                    </a>
+                    |
+                </li>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
