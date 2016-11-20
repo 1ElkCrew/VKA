@@ -1,0 +1,11 @@
+git add
+git commit -m ""
+git push
+
+git status
+git diff
+
+git rm --cached -r . #remove cached files that are tracked recursive all files
+git add . #add all files apart from .gitignore
+
+git reset origin/master --hard #if cannot remove cached
