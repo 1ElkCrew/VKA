@@ -9,3 +9,9 @@ git rm --cached -r . #remove cached files that are tracked recursive all files
 git add . #add all files apart from .gitignore
 
 git reset origin/master --hard #if cannot remove cached
+
+git add .
+git commit --amend #add to the last commit
+git push --force
+
+git reset -- path/to/file #remove add
