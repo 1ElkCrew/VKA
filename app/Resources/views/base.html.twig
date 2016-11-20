@@ -5,9 +5,32 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('../vendor/twbs/bootstrap/dist/css/bootstrap.min.css') }}">
+
     </head>
     <body>
+
+        {{ include('nav.html.twig') }}
+        <div class="row">
+            <div class="col-md-3" style="background-color: red">
+                asd
+            </div>
+            <div class="col-md-7" style="background-color: green">
+                xdd
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-push-8 col-md-4" style="background-color: blue">
+                lolol
+            </div>
+        </div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+
+        <script   src="https://code.jquery.com/jquery-1.12.4.min.js"
+                  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+                  crossorigin="anonymous">
+        </script>
+        <script src="{{ asset('../vendor/twbs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     </body>
 </html>

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\CarMake;
 use AppBundle\Entity\CarModel;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -16,8 +17,11 @@ class ModelsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('make', EntityType::class,[
+            ->add('model', EntityType::class, [
                 'class' => CarModel::class,
+            ])
+            ->add('make', EntityType::class,[
+                'class' => CarMake::class,
             ]);
         ;
     }
