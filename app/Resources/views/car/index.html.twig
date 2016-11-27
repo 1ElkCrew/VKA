@@ -1,21 +1,29 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <a href="{{ path("add_car") }}">Add New</a>
+    <h1>Cars</h1>
+    <a href="{{ path("add_car") }}" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add New</a>
+    <br><br>
 
-            {% for car in cars %}
-                <li>
-                    {{ car.id }} |
-                    <a href="{{ path("edit_car", {car: car.id}) }}">
-                    {{ car.comment }}
-                    </a>
-                    |
-                <a href="{{ path("delete_car", {car: car.id}) }}">Delete
-
+    <table class="table table-striped table-condensed table-bordered table-hover col-xs-10">
+    <tbody>
+    {% for car in cars %}
+        <tr>
+            <td class="col-xs-1">
+                {{ car.id }}
+            </td>
+            <td class="col-xs-8">
+                {{ car.comment }}
+            </td>
+            <td class="col-xs-2">
+                <a class="btn btn-default btn-sm col-xs-6" href="{{ path("edit_car", {car: car.id}) }}">
+                    Edit
                 </a>
-                </li>
-            {% endfor %}
-        </div>
-    </div>
+                <a class="btn btn-danger btn-sm col-xs-6" href="{{ path("delete_car", {car: car.id}) }}">Delete
+                    <i class="glyphicon glyphicon-trash"></i>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
 {% endblock %}

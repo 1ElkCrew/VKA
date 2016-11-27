@@ -83,7 +83,7 @@ class CarController extends Controller{
     public function editAction(Request $request, Car $car){
         dump($car);
         $form = $this->createForm(CarType::class, $car)
-            ->add('edit', SubmitType::class, ['label' => 'Edit Car']);
+            ->add('edit', SubmitType::class, ['label' => 'Submit Edit']);
         //handle forma
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

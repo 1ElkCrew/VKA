@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            Delete car: {{ car.id }} | {{ car.comment }}
-            <a href="{{ path('car_index') }}"><h2>No!</h2></a>
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            {{ form_end(form) }}
-        </div>
-    </div>
+    <h1>Delete car:</h1>
+    <br><span style="font-size: 20pt;">
+    ID: {{ car.id }}
+    <br>Comment: {{ car.comment }}</span>
+    {{ form_start(form) }}
+    {{ form_row(form.delete, {'attr':{'class':"col-xs-1 btn btn-sm btn-danger"} }) }}
+    <a class="btn btn-sm btn-default col-xs-1" href="{{ path('car_index') }}">No!</a>
+    {{ form_end(form) }}
 {% endblock %}
