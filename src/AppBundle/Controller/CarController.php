@@ -4,10 +4,10 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Car;
 use AppBundle\Form\CarType;
+use AppBundle\Service\MathService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -21,9 +21,17 @@ class CarController extends Controller{
      * @Route("/", name="car_index")
      */
     public function indexAction(){
+        // $math = new MathService();
+        $math = $this->get('app.math');
+        $ats = $math->addNumbers(3, 5);
+        dump($ats);
+        return new Response();
+
         $repo = $this->getDoctrine()->getRepository('AppBundle:Car');
-        $cars = $repo->findAll();
-        dump($cars);
+        if (in_array('ROLE_ADMIN', $this->getUser()->getRoles()))
+            $cars = $repo->findAll();
+        else
+            $cars = $repo->getActive();
         return $this->render("car/index.html.twig", [
             'cars' => $cars,
         ]);

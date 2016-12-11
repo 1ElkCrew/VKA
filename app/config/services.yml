@@ -7,3 +7,10 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.math:
+        class: AppBundle\Service\MathService
+        arguments: ["@doctrine.orm.entity_manager", 2, "@security.token_storage"]
+
+    app.modelform:
+        class: AppBundle\Service\FormModelService
+        arguments: ["@doctrine.orm.entity_manager", "@form.factory", "@twig"]

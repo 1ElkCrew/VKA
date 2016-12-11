@@ -6,6 +6,7 @@ use AppBundle\Entity\Car;
 use AppBundle\Entity\CarModel;
 use AppBundle\Form\CarType;
 use AppBundle\Form\ModelsType;
+use AppBundle\Service\FormModelService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -23,14 +24,7 @@ class ModelsController extends Controller{
      * @Route("/", name="models")
      */
     public function indexAction(){
-        $repo = $this->getDoctrine()->getRepository('AppBundle:CarModel');
-        $cars = $repo->findAll();
-        //dump($cars);
-        $form = $this->createForm(ModelsType::class);
-        return $this->render("car/models.html.twig", [
-            'models' => $cars,
-            'form' => $form->createView(),
-        ]);
+        return $this->get("app.modelform")->getCarModels();
     }
 
     /**
